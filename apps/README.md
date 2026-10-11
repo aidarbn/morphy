@@ -18,6 +18,9 @@ exactly as if it were standalone.
   - `/board-tester.html` — A single chess board + header + move-notation
     view, driven by `?db=<databaseId>&game=<gameId>` query params.
 
+- **morphy-desktop** — The desktop app: Electron starts morphy-service and shows morphy-web in
+  a window, with native dialogs to open and create databases. See its README.
+
 ## Packages
 
 Shared, reusable code lives under `packages/`, consumed by apps via the

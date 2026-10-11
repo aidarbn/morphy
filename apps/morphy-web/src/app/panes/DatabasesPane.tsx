@@ -17,14 +17,27 @@ export function DatabasesPane() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetchDatabases()
-      .then((res) => setDatabases(res.databases))
-      .catch((err: unknown) => setError(err instanceof Error ? err.message : String(err)));
+    const load = () =>
+      fetchDatabases()
+        .then((res) => setDatabases(res.databases))
+        .catch((err: unknown) => setError(err instanceof Error ? err.message : String(err)));
+    void load();
+    // The desktop app registers databases through native dialogs and says so with this event
+    window.addEventListener('morphy:databases-changed', load);
+    return () => window.removeEventListener('morphy:databases-changed', load);
   }, []);
+
+  const desktop = window.morphyDesktop;
 
   return (
     <div className="pane-page">
       <h1>All Databases</h1>
+      {desktop && (
+        <p className="database-actions">
+          <button onClick={() => void desktop.openDatabase()}>Open database…</button>
+          <button onClick={() => void desktop.newDatabase()}>New database…</button>
+        </p>
+      )}
       {error && <p className="pane-error">{error}</p>}
       {!databases && !error && <p className="pane-muted">Loading…</p>}
       {databases?.length === 0 && <p className="pane-muted">No databases are configured.</p>}

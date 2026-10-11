@@ -299,6 +299,12 @@ html {
   background: #f5f6f8;
 }
 
+.database-actions {
+  display: flex;
+  gap: 8px;
+  margin: 0 0 12px;
+}
+
 .database-table {
   width: 100%;
   border-collapse: collapse;

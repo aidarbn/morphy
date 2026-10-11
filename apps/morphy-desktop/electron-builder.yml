@@ -1,0 +1,45 @@
+appId: se.yarin.morphy.desktop
+productName: Morphy
+copyright: Morphy contributors
+directories:
+  output: release
+  buildResources: build
+files:
+  - dist/**
+  - package.json
+extraResources:
+  # The service jar and the built web app; a Java runtime under jre/ when one is bundled
+  - from: ../../morphy-service/target/
+    to: service
+    filter:
+      - "morphy-service-*.jar"
+      - "!*.original"
+  - from: ../morphy-web/dist/
+    to: web
+  - from: jre/
+    to: jre
+    filter:
+      - "**/*"
+linux:
+  target:
+    - AppImage
+    - deb
+  category: Game
+  icon: build/icon.png
+  desktop:
+    entry:
+      Name: Morphy
+      Comment: Chess database — browse, search and edit ChessBase and PGN databases
+      Keywords: chess;chessbase;pgn;database
+      MimeType: application/x-chessbase;application/x-chess-pgn
+deb:
+  depends:
+    - openjdk-21-jre-headless | java21-runtime-headless | java-runtime-headless (>= 21)
+    - libgtk-3-0
+    - libnotify4
+    - libnss3
+    - libxss1
+    - libxtst6
+    - xdg-utils
+    - libatspi2.0-0
+    - libsecret-1-0

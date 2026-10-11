@@ -1,0 +1,20 @@
+{
+  "name": "morphy-desktop",
+  "productName": "Morphy",
+  "version": "0.1.0",
+  "description": "Morphy as a desktop app: the service and the web app in one window",
+  "private": true,
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "npm run build && ELECTRON_DISABLE_SANDBOX=1 electron .",
+    "dist": "npm run build && electron-builder --linux",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "electron": "^38.0.0",
+    "electron-builder": "^26.0.0",
+    "typescript": "~5.9.0"
+  }
+}
