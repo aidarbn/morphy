@@ -17,6 +17,10 @@
     "electron-builder": "^26.0.0",
     "typescript": "~5.9.0"
   },
-  "author": "Morphy contributors",
-  "license": "UNLICENSED"
+  "author": {
+    "name": "Morphy contributors",
+    "email": "morphy@example.invalid"
+  },
+  "license": "UNLICENSED",
+  "homepage": "https://github.com/Yarin78/morphy"
 }

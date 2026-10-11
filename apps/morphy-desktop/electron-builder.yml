@@ -34,7 +34,6 @@ linux:
       MimeType: application/x-chessbase;application/x-chess-pgn
 deb:
   depends:
-    - openjdk-21-jre-headless | java21-runtime-headless | java-runtime-headless (>= 21)
     - libgtk-3-0
     - libnotify4
     - libnss3
