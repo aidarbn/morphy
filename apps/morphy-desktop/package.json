@@ -13,8 +13,10 @@
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
-    "electron": "^38.0.0",
+    "electron": "38.8.6",
     "electron-builder": "^26.0.0",
     "typescript": "~5.9.0"
-  }
+  },
+  "author": "Morphy contributors",
+  "license": "UNLICENSED"
 }
